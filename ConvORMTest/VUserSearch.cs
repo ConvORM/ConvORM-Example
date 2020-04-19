@@ -12,7 +12,7 @@ namespace ConvORMTest
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            VUserRegister userRegister = new VUserRegister();
+            var userRegister = new VUserRegister();
             userRegister.ShowDialog();
         }
     }

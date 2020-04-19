@@ -9,7 +9,7 @@ namespace ConvORMTest
 {
     public partial class VMain : Form
     {
-        private Connection connection;
+        private Connection _connection;
 
         public VMain()
         {
@@ -20,16 +20,16 @@ namespace ConvORMTest
         {
 
             if (ckbUseConnectionFile.Checked)
-                connection = ConnectionFactory.GetConnection();
+                _connection = ConnectionFactory.GetConnection();
             else
             {
-                ConnectionParameters connectionParameters = new ConnectionParameters("Default", GetDriverConnection(), txtHost.Text, txtPort.Text, txtUser.Text, txtPassword.Text, txtDatabase.Text);
-                connection = ConnectionFactory.GetConnection(connectionParameters);
+                var connectionParameters = new ConnectionParameters("Default", GetDriverConnection(), txtHost.Text, txtPort.Text, txtUser.Text, txtPassword.Text, txtDatabase.Text);
+                _connection = ConnectionFactory.GetConnection(connectionParameters);
             }
 
             try 
             { 
-                if (connection.Connected)
+                if (_connection.Connected)
                     lblStatus.Text = "Connected";
                 else
                     lblStatus.Text = "Not Connected";
@@ -81,7 +81,7 @@ namespace ConvORMTest
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            VUserSearch form = new VUserSearch();
+            var form = new VUserSearch();
             form.ShowDialog();
         }
     }

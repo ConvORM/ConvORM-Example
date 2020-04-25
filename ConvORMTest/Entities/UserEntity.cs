@@ -1,6 +1,9 @@
 ﻿using ConvORM.Repository;
 using ConvORM.Repository.Entities;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ConvORMTest.Entities
 {
@@ -24,7 +27,7 @@ namespace ConvORMTest.Entities
 
         public UserEntity Save()
         {
-            Repository userRepository = new Repository();
+            var userRepository = new Repository();
             try
             {
                 return (UserEntity)userRepository.Insert(this);
@@ -33,6 +36,21 @@ namespace ConvORMTest.Entities
             {
                 Console.Write(ex.Message);
                 return null;
+            }
+        }
+
+        public IList GetAll()
+        {
+            var userRepository = new Repository();
+            try
+            {
+                return userRepository.GetAll(this);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
             }
         }
 

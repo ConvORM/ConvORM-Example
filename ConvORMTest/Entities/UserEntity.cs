@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ConvORM.Connection.Classes.QueryBuilders;
 
 namespace ConvORMTest.Entities
 {
@@ -39,13 +40,26 @@ namespace ConvORMTest.Entities
             }
         }
 
-        public IList GetAll()
+        public IList FindAll()
         {
             var userRepository = new Repository();
             try
             {
-                return userRepository.GetAll(this);
+                return userRepository.FindAll(this);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+        }
 
+        public IList Find(QueryConditionsBuilder conditionsBuilder)
+        {
+            var userRepository = new Repository();
+            try
+            {
+                return userRepository.Find(this, conditionsBuilder);
             }
             catch (Exception ex)
             {

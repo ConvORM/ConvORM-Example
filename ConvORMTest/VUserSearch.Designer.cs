@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txtTextToSearch = new System.Windows.Forms.TextBox();
+            this.panelDivisor = new System.Windows.Forms.Panel();
             this.dgvRegisters = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -51,21 +50,21 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "User";
             // 
-            // textBox1
+            // txtTextToSearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(100, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(476, 35);
-            this.textBox1.TabIndex = 1;
+            this.txtTextToSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTextToSearch.Location = new System.Drawing.Point(82, 12);
+            this.txtTextToSearch.Name = "txtTextToSearch";
+            this.txtTextToSearch.Size = new System.Drawing.Size(494, 35);
+            this.txtTextToSearch.TabIndex = 1;
             // 
-            // panel1
+            // panelDivisor
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(16, 53);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(765, 2);
-            this.panel1.TabIndex = 7;
+            this.panelDivisor.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelDivisor.Location = new System.Drawing.Point(16, 53);
+            this.panelDivisor.Name = "panelDivisor";
+            this.panelDivisor.Size = new System.Drawing.Size(765, 2);
+            this.panelDivisor.TabIndex = 7;
             // 
             // dgvRegisters
             // 
@@ -128,13 +127,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 450);
             this.Controls.Add(this.dgvRegisters);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelDivisor);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTextToSearch);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "VUserSearch";
@@ -149,14 +148,13 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTextToSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Panel panel1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panelDivisor;
         private System.Windows.Forms.DataGridView dgvRegisters;
     }
 }

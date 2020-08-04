@@ -19,16 +19,17 @@ namespace ConvORMTest
         private void btnConnect_Click(object sender, EventArgs e)
         {
 
-            if (ckbUseConnectionFile.Checked)
-                _connection = ConnectionFactory.GetConnection();
-            else
-            {
-                var connectionParameters = new ConnectionParameters("Default", GetDriverConnection(), txtHost.Text, txtPort.Text, txtUser.Text, txtPassword.Text, txtDatabase.Text);
-                _connection = ConnectionFactory.GetConnection(connectionParameters);
-            }
-
             try 
-            { 
+            {
+
+                if (ckbUseConnectionFile.Checked)
+                    _connection = ConnectionFactory.GetConnection();
+                else
+                {
+                    var connectionParameters = new ConnectionParameters("Default", GetDriverConnection(), txtHost.Text, txtPort.Text, txtUser.Text, txtPassword.Text, txtDatabase.Text);
+                    _connection = ConnectionFactory.GetConnection(connectionParameters);
+                }
+
                 if (_connection.Connected)
                     lblStatus.Text = "Connected";
                 else

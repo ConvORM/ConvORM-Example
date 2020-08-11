@@ -1,4 +1,5 @@
 ﻿using ConvORM.Connection.Classes;
+using ConvORM.Connection.Classes.QueryBuilders;
 using ConvORM.Repository;
 using ConvORM.Repository.Entities;
 using System;

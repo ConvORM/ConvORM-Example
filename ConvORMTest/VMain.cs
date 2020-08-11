@@ -26,7 +26,7 @@ namespace ConvORMTest
                     _connection = ConnectionFactory.GetConnection();
                 else
                 {
-                    var connectionParameters = new ConnectionParameters("Default", GetDriverConnection(), txtHost.Text, txtPort.Text, txtUser.Text, txtPassword.Text, txtDatabase.Text);
+                    var connectionParameters = GetConnectionParameters();
                     _connection = ConnectionFactory.GetConnection(connectionParameters);
                 }
 
@@ -108,20 +108,19 @@ namespace ConvORMTest
             switch (driverConnection)
             {
                 case EConnectionDriverTypes.ecdtFirebird:
-                    break;
+                    return null;
                 case EConnectionDriverTypes.ecdtMySql:
                     return new ConnectionParameters("Default", driverConnection, txtHost.Text, txtPort.Text, txtDatabase.Text, txtUser.Text, txtPassword.Text);
                 case EConnectionDriverTypes.ecdtPostgreeSQL:
-                    break;
+                    return null;
                 case EConnectionDriverTypes.ecdtSQLServer:
-                    return new ConnectionParameters("Default", driverConnection, txtHost.Text, txtPort.Text, txtDatabase.Text, ckbIntegratedSecurity.Checked , (ckbIntegratedSecurity.Checked ? null : txtUser.Text), (ckbIntegratedSecurity.Checked ? null : txtPassword.Text));
+                    return new ConnectionParameters("Default", driverConnection, txtHost.Text, txtPort.Text, txtDatabase.Text, ckbIntegratedSecurity.Checked , ckbIntegratedSecurity.Checked ? null : txtUser.Text, ckbIntegratedSecurity.Checked ? null : txtPassword.Text);
                 case EConnectionDriverTypes.ecdtNone:
-                    break;
+                    return null;
                 default:
-                    break;
+                    return null;
             }
 
-            var connectionParameters =  new ConnectionParameters("Default", GetDriverConnection(), txtHost.Text, txtPort.Text, txtUser.Text, txtPassword.Text, txtDatabase.Text);
         }
 
 

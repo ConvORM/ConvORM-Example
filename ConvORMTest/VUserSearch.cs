@@ -1,11 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-using System.Data;
-using System.Windows.Forms;
+﻿using ConvORM.Connection.Classes;
 using ConvORM.Connection.Classes.QueryBuilders;
 using ConvORM.Connection.Enums;
 using ConvORM.Connection.Helpers;
 using ConvORMTest.Entities;
+using System;
+using System.Windows.Forms;
 
 namespace ConvORMTest
 {

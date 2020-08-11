@@ -84,5 +84,45 @@ namespace ConvORMTest
             var form = new VUserSearch();
             form.ShowDialog();
         }
+
+        private void cbConectionDrivers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbConectionDrivers.SelectedIndex == 3)
+            {
+                ckbIntegratedSecurity.Enabled = true;
+            }
+        }
+
+        private void ckbIntegratedSecurity_CheckedChanged(object sender, EventArgs e)
+        {
+            txtUser.Enabled = !ckbIntegratedSecurity.Checked;
+            txtPassword.Enabled = !ckbIntegratedSecurity.Checked;
+
+        }
+
+        private ConnectionParameters GetConnectionParameters()
+        {
+            var driverConnection = GetDriverConnection();
+
+            switch (driverConnection)
+            {
+                case EConnectionDriverTypes.ecdtFirebird:
+                    break;
+                case EConnectionDriverTypes.ecdtMySql:
+                    return new ConnectionParameters("Default", driverConnection, txtHost.Text, txtPort.Text, txtDatabase.Text, txtUser.Text, txtPassword.Text);
+                case EConnectionDriverTypes.ecdtPostgreeSQL:
+                    break;
+                case EConnectionDriverTypes.ecdtSQLServer:
+                    return new ConnectionParameters("Default", driverConnection, txtHost.Text, txtPort.Text, txtDatabase.Text, ckbIntegratedSecurity.Checked , (ckbIntegratedSecurity.Checked ? null : txtUser.Text), (ckbIntegratedSecurity.Checked ? null : txtPassword.Text));
+                case EConnectionDriverTypes.ecdtNone:
+                    break;
+                default:
+                    break;
+            }
+
+            var connectionParameters =  new ConnectionParameters("Default", GetDriverConnection(), txtHost.Text, txtPort.Text, txtUser.Text, txtPassword.Text, txtDatabase.Text);
+        }
+
+
     }
 }

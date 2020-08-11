@@ -33,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Conv.ORM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Conv.ORM">
       <HintPath>..\..\..\Conv.ORM\Conv.ORM\bin\Debug\Conv.ORM.dll</HintPath>
     </Reference>
     <Reference Include="System" />

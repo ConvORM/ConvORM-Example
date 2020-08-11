@@ -1,10 +1,8 @@
-﻿using ConvORM.Repository;
+﻿using ConvORM.Connection.Classes;
+using ConvORM.Repository;
 using ConvORM.Repository.Entities;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using ConvORM.Connection.Classes.QueryBuilders;
 
 namespace ConvORMTest.Entities
 {

@@ -88,10 +88,31 @@ namespace ConvORMTest
 
         private void cbConectionDrivers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbConectionDrivers.SelectedIndex == 3)
+            if (cbConectionDrivers.SelectedIndex == 0)
+            {
+                ckbIntegratedSecurity.Enabled = false;
+                txtHost.Text = "";
+                txtPort.Text = "";
+            }
+            if (cbConectionDrivers.SelectedIndex == 1)
+            {
+                ckbIntegratedSecurity.Enabled = false;
+                txtHost.Text = "127.0.0.1";
+                txtPort.Text = "3306";
+            }
+            if (cbConectionDrivers.SelectedIndex == 2)
+            {
+                ckbIntegratedSecurity.Enabled = false;
+                txtHost.Text = "";
+                txtPort.Text = "";
+            }
+            if (cbConectionDrivers.SelectedIndex == 3)
             {
                 ckbIntegratedSecurity.Enabled = true;
+                txtHost.Text = "127.0.0.1";
+                txtPort.Text = "1433";
             }
+                
         }
 
         private void ckbIntegratedSecurity_CheckedChanged(object sender, EventArgs e)

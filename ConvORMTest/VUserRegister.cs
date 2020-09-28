@@ -58,5 +58,10 @@ namespace ConvORMTest
                 MessageBox.Show("Error!", "Ops", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
+
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
     }
 }

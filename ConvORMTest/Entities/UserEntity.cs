@@ -30,7 +30,10 @@ namespace ConvORMTest.Entities
             var userRepository = new Repository();
             try
             {
-                return (UserEntity)userRepository.Insert(this);
+                if (UserId != 0)
+                    return (UserEntity)userRepository.Update(this);
+                else
+                    return (UserEntity)userRepository.Insert(this);
             }
             catch(Exception ex)
             {
@@ -59,6 +62,20 @@ namespace ConvORMTest.Entities
             try
             {
                 return userRepository.Find(this, conditionsBuilder);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+        }
+
+        public UserEntity Find(int id)
+        {
+            var userRepository = new Repository();
+            try
+            {
+                return (UserEntity)userRepository.Find(this, new int[] {id});
             }
             catch (Exception ex)
             {

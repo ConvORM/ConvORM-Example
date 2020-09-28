@@ -27,7 +27,16 @@ namespace ConvORMTest
                 else
                 {
                     var connectionParameters = GetConnectionParameters();
-                    _connection = ConnectionFactory.GetConnection(connectionParameters);
+                    if (connectionParameters != null)
+                    {
+                        _connection = ConnectionFactory.GetConnection(connectionParameters);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a Driver Connection Type or check to use the Connection File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                        
                 }
 
                 if (_connection.Connected)

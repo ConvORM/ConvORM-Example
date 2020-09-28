@@ -68,14 +68,23 @@
             // 
             // dgvRegisters
             // 
+            this.dgvRegisters.AllowUserToAddRows = false;
+            this.dgvRegisters.AllowUserToDeleteRows = false;
             this.dgvRegisters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegisters.Location = new System.Drawing.Point(16, 61);
+            this.dgvRegisters.MultiSelect = false;
             this.dgvRegisters.Name = "dgvRegisters";
+            this.dgvRegisters.ReadOnly = true;
+            this.dgvRegisters.RowHeadersVisible = false;
+            this.dgvRegisters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegisters.Size = new System.Drawing.Size(765, 377);
             this.dgvRegisters.TabIndex = 8;
+            this.dgvRegisters.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegisters_CellContentClick);
+            this.dgvRegisters.SelectionChanged += new System.EventHandler(this.dgvRegisters_SelectionChanged);
             // 
             // btnDelete
             // 
+            this.btnDelete.Enabled = false;
             this.btnDelete.Image = global::ConvORMTest.ConvORMResources.deleteRegister;
             this.btnDelete.Location = new System.Drawing.Point(746, 12);
             this.btnDelete.Name = "btnDelete";
@@ -85,12 +94,14 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Enabled = false;
             this.btnEdit.Image = global::ConvORMTest.ConvORMResources.editRegister;
             this.btnEdit.Location = new System.Drawing.Point(705, 12);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(35, 35);
             this.btnEdit.TabIndex = 5;
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnNew
             // 

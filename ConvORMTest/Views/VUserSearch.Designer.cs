@@ -37,7 +37,20 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.pnlFilters = new System.Windows.Forms.Panel();
+            this.btnClearFilters = new System.Windows.Forms.Button();
+            this.txtFilterValue = new System.Windows.Forms.TextBox();
+            this.cmbTypeFilter = new System.Windows.Forms.ComboBox();
+            this.lblFilterValue = new System.Windows.Forms.Label();
+            this.lblFilterType = new System.Windows.Forms.Label();
+            this.lblUserIdFilter = new System.Windows.Forms.Label();
+            this.pnlDivisory1 = new System.Windows.Forms.Panel();
+            this.rbOnlyNotActives = new System.Windows.Forms.RadioButton();
+            this.rbOnlyActives = new System.Windows.Forms.RadioButton();
+            this.lblActiveFilter = new System.Windows.Forms.Label();
+            this.rbAll = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegisters)).BeginInit();
+            this.pnlFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -71,13 +84,13 @@
             this.dgvRegisters.AllowUserToAddRows = false;
             this.dgvRegisters.AllowUserToDeleteRows = false;
             this.dgvRegisters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegisters.Location = new System.Drawing.Point(16, 61);
+            this.dgvRegisters.Location = new System.Drawing.Point(16, 122);
             this.dgvRegisters.MultiSelect = false;
             this.dgvRegisters.Name = "dgvRegisters";
             this.dgvRegisters.ReadOnly = true;
             this.dgvRegisters.RowHeadersVisible = false;
             this.dgvRegisters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegisters.Size = new System.Drawing.Size(765, 377);
+            this.dgvRegisters.Size = new System.Drawing.Size(765, 316);
             this.dgvRegisters.TabIndex = 8;
             this.dgvRegisters.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegisters_CellContentClick);
             this.dgvRegisters.SelectionChanged += new System.EventHandler(this.dgvRegisters_SelectionChanged);
@@ -121,6 +134,7 @@
             this.btnFilter.Size = new System.Drawing.Size(35, 35);
             this.btnFilter.TabIndex = 3;
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // btnSearch
             // 
@@ -132,11 +146,140 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // pnlFilters
+            // 
+            this.pnlFilters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlFilters.Controls.Add(this.btnClearFilters);
+            this.pnlFilters.Controls.Add(this.txtFilterValue);
+            this.pnlFilters.Controls.Add(this.cmbTypeFilter);
+            this.pnlFilters.Controls.Add(this.lblFilterValue);
+            this.pnlFilters.Controls.Add(this.lblFilterType);
+            this.pnlFilters.Controls.Add(this.lblUserIdFilter);
+            this.pnlFilters.Controls.Add(this.pnlDivisory1);
+            this.pnlFilters.Controls.Add(this.rbOnlyNotActives);
+            this.pnlFilters.Controls.Add(this.rbOnlyActives);
+            this.pnlFilters.Controls.Add(this.lblActiveFilter);
+            this.pnlFilters.Controls.Add(this.rbAll);
+            this.pnlFilters.Location = new System.Drawing.Point(17, 61);
+            this.pnlFilters.Name = "pnlFilters";
+            this.pnlFilters.Size = new System.Drawing.Size(764, 55);
+            this.pnlFilters.TabIndex = 9;
+            // 
+            // btnClearFilters
+            // 
+            this.btnClearFilters.Location = new System.Drawing.Point(365, 23);
+            this.btnClearFilters.Name = "btnClearFilters";
+            this.btnClearFilters.Size = new System.Drawing.Size(47, 23);
+            this.btnClearFilters.TabIndex = 10;
+            this.btnClearFilters.Text = "Clear";
+            this.btnClearFilters.UseVisualStyleBackColor = true;
+            this.btnClearFilters.Click += new System.EventHandler(this.btnClearFilters_Click);
+            // 
+            // txtFilterValue
+            // 
+            this.txtFilterValue.Location = new System.Drawing.Point(221, 25);
+            this.txtFilterValue.Name = "txtFilterValue";
+            this.txtFilterValue.Size = new System.Drawing.Size(138, 20);
+            this.txtFilterValue.TabIndex = 9;
+            // 
+            // cmbTypeFilter
+            // 
+            this.cmbTypeFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTypeFilter.FormattingEnabled = true;
+            this.cmbTypeFilter.Items.AddRange(new object[] {
+            ">",
+            ">=",
+            "=",
+            "!=",
+            "<",
+            "<="});
+            this.cmbTypeFilter.Location = new System.Drawing.Point(90, 25);
+            this.cmbTypeFilter.Name = "cmbTypeFilter";
+            this.cmbTypeFilter.Size = new System.Drawing.Size(85, 21);
+            this.cmbTypeFilter.TabIndex = 8;
+            // 
+            // lblFilterValue
+            // 
+            this.lblFilterValue.AutoSize = true;
+            this.lblFilterValue.Location = new System.Drawing.Point(181, 28);
+            this.lblFilterValue.Name = "lblFilterValue";
+            this.lblFilterValue.Size = new System.Drawing.Size(34, 13);
+            this.lblFilterValue.TabIndex = 7;
+            this.lblFilterValue.Text = "Value";
+            // 
+            // lblFilterType
+            // 
+            this.lblFilterType.AutoSize = true;
+            this.lblFilterType.Location = new System.Drawing.Point(53, 28);
+            this.lblFilterType.Name = "lblFilterType";
+            this.lblFilterType.Size = new System.Drawing.Size(31, 13);
+            this.lblFilterType.TabIndex = 6;
+            this.lblFilterType.Text = "Type";
+            // 
+            // lblUserIdFilter
+            // 
+            this.lblUserIdFilter.AutoSize = true;
+            this.lblUserIdFilter.Location = new System.Drawing.Point(3, 28);
+            this.lblUserIdFilter.Name = "lblUserIdFilter";
+            this.lblUserIdFilter.Size = new System.Drawing.Size(38, 13);
+            this.lblUserIdFilter.TabIndex = 5;
+            this.lblUserIdFilter.Text = "UserId";
+            // 
+            // pnlDivisory1
+            // 
+            this.pnlDivisory1.BackColor = System.Drawing.SystemColors.ControlText;
+            this.pnlDivisory1.Location = new System.Drawing.Point(47, 5);
+            this.pnlDivisory1.Name = "pnlDivisory1";
+            this.pnlDivisory1.Size = new System.Drawing.Size(2, 41);
+            this.pnlDivisory1.TabIndex = 4;
+            // 
+            // rbOnlyNotActives
+            // 
+            this.rbOnlyNotActives.AutoSize = true;
+            this.rbOnlyNotActives.Location = new System.Drawing.Point(184, 3);
+            this.rbOnlyNotActives.Name = "rbOnlyNotActives";
+            this.rbOnlyNotActives.Size = new System.Drawing.Size(101, 17);
+            this.rbOnlyNotActives.TabIndex = 3;
+            this.rbOnlyNotActives.Text = "Only not actives";
+            this.rbOnlyNotActives.UseVisualStyleBackColor = true;
+            // 
+            // rbOnlyActives
+            // 
+            this.rbOnlyActives.AutoSize = true;
+            this.rbOnlyActives.Location = new System.Drawing.Point(95, 3);
+            this.rbOnlyActives.Name = "rbOnlyActives";
+            this.rbOnlyActives.Size = new System.Drawing.Size(83, 17);
+            this.rbOnlyActives.TabIndex = 2;
+            this.rbOnlyActives.Text = "Only actives";
+            this.rbOnlyActives.UseVisualStyleBackColor = true;
+            // 
+            // lblActiveFilter
+            // 
+            this.lblActiveFilter.AutoSize = true;
+            this.lblActiveFilter.Location = new System.Drawing.Point(3, 5);
+            this.lblActiveFilter.Name = "lblActiveFilter";
+            this.lblActiveFilter.Size = new System.Drawing.Size(37, 13);
+            this.lblActiveFilter.TabIndex = 1;
+            this.lblActiveFilter.Text = "Active";
+            // 
+            // rbAll
+            // 
+            this.rbAll.AutoSize = true;
+            this.rbAll.Checked = true;
+            this.rbAll.Location = new System.Drawing.Point(53, 3);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(36, 17);
+            this.rbAll.TabIndex = 0;
+            this.rbAll.TabStop = true;
+            this.rbAll.Text = "All";
+            this.rbAll.UseVisualStyleBackColor = true;
+            // 
             // VUserSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 450);
+            this.Controls.Add(this.pnlFilters);
             this.Controls.Add(this.dgvRegisters);
             this.Controls.Add(this.panelDivisor);
             this.Controls.Add(this.btnDelete);
@@ -150,7 +293,10 @@
             this.Name = "VUserSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Search";
+            this.Shown += new System.EventHandler(this.VUserSearch_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegisters)).EndInit();
+            this.pnlFilters.ResumeLayout(false);
+            this.pnlFilters.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +313,17 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Panel panelDivisor;
         private System.Windows.Forms.DataGridView dgvRegisters;
+        private System.Windows.Forms.Panel pnlFilters;
+        private System.Windows.Forms.Panel pnlDivisory1;
+        private System.Windows.Forms.RadioButton rbOnlyNotActives;
+        private System.Windows.Forms.RadioButton rbOnlyActives;
+        private System.Windows.Forms.Label lblActiveFilter;
+        private System.Windows.Forms.RadioButton rbAll;
+        private System.Windows.Forms.TextBox txtFilterValue;
+        private System.Windows.Forms.ComboBox cmbTypeFilter;
+        private System.Windows.Forms.Label lblFilterValue;
+        private System.Windows.Forms.Label lblFilterType;
+        private System.Windows.Forms.Label lblUserIdFilter;
+        private System.Windows.Forms.Button btnClearFilters;
     }
 }
